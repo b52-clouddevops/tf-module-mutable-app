@@ -8,4 +8,4 @@ data "terraform_remote_state" "vpc" {
   }
 }
 
-# THIS
+# This is to read the information from the tf
