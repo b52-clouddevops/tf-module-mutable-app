@@ -8,4 +8,4 @@ data "terraform_remote_state" "vpc" {
   }
 }
 
-# This is to read the information from the tf
+# This is to read the information from the tf alb backend module
