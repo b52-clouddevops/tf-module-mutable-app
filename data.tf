@@ -9,3 +9,11 @@ data "terraform_remote_state" "vpc" {
 }
 
 # This is to read the information from the tf alb backend module
+data "terraform_remote_state" "alb" {
+  backend = "s3"
+  config = {
+        bucket = "b52-terraform-state-bucket"
+        key    = "alb/${var.ENV}/terraform.tfstate"
+        region = "us-east-1"
+  }
+}
