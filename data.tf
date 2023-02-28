@@ -17,3 +17,11 @@ data "terraform_remote_state" "alb" {
         region = "us-east-1"
   }
 }
+
+# This is to read the information of the AMI
+data "aws_ami" "lab-image" {
+  most_recent      = true
+  name_regex       = "b52-ansible-dev-20Jan2023"
+  owners           = ["self"]
+}
+
