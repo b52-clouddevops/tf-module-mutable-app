@@ -26,3 +26,5 @@ resource "aws_spot_instance_request" "cheap_worker" {
     Name = "${var.COMPONENT}-${var.ENV}"
   }
 }
+
+# Creates the tags to spot instance 
