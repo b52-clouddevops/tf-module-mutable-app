@@ -14,7 +14,7 @@ resource "aws_instance" "my-ec2" {
 
 
 # Creates SPOT Servers
-resource "aws_spot_instance_request" "cheap_worker" {
+resource "aws_spot_instance_request" "spot-server" {
   count                   = var.SPOT_INSTANCE_COUNT
   ami                     = data.aws_ami.lab-image.id
   instance_type           = var.INSTANCE_TYPE
@@ -34,4 +34,8 @@ resource "aws_ec2_tag" "spot-server-tag" {
   resource_id = element(local.ALL_INSTANCE_IDS, count.index)
   key         = "Name"
   value       = "${var.COMPONENT}-${var.ENV}"
+}
+
+locals {
+    ALL_INSTANCE_IDS = concat(aws_spot_instance_request)
 }
