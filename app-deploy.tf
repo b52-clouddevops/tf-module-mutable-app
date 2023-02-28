@@ -3,8 +3,8 @@ resource "null_resource" "app" {
   provisioner "remote-exec" {
     connection {
       type     = "ssh"
-      user     = "centos"
-      password = "DevOps321"
+      user     = local.SSH_USER
+      password = local.SSH_PASSWORD
       host     = element(local.ALL_INSTANCE_IPS, count.index)  
       }
 
