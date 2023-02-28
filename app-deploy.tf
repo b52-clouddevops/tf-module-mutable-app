@@ -1,6 +1,6 @@
 resource "null_resource" "app" {
 
-  count   = var.OD_INSTANCE_COUNT + SPOT_INSTANCE_COUNT
+  count   = var.OD_INSTANCE_COUNT + var.SPOT_INSTANCE_COUNT
 
   provisioner "remote-exec" {
     connection {
