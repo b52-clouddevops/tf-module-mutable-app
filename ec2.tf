@@ -5,6 +5,7 @@ resource "aws_instance" "my-ec2" {
   count                = var.OD_INSTANCE_COUNT
   ami                     = data.aws_ami.lab-image.id
   instance_type           = var.INSTANCE_TYPE
+  subnet_id               = data.
   vpc_security_group_ids  = [aws_security_group.allow_app.id]
 
   tags = {
