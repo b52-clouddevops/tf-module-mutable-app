@@ -1,5 +1,7 @@
 resource "null_resource" "app" {
 
+  count   = 
+
   provisioner "remote-exec" {
     connection {
       type     = "ssh"
