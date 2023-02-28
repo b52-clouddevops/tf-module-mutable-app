@@ -2,7 +2,7 @@ resource "null_resource" "app" {
 
   triggers = {
     # version = var.APP_VERSION   #only when there is a change in the value of APP_VERSION compated to previous verion, then only this will be triggered.
-      timechange = 
+      timechange = timestamp()
   }
 
   count   = var.OD_INSTANCE_COUNT + var.SPOT_INSTANCE_COUNT
