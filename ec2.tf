@@ -30,7 +30,7 @@ resource "aws_spot_instance_request" "cheap_worker" {
 # Creates the tags to spot instance 
 
 resource "aws_ec2_tag" "spot-server-tag" {
-  resource_id = aws_vpn_connection.example.transit_gateway_attachment_id
+  resource_id = 
   key         = "Name"
   value       = "${var.COMPONENT}-${var.ENV}"
 }
