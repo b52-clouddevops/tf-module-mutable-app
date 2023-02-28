@@ -1,6 +1,5 @@
 # Creates on-demand servers
 
-# creates ec2 instance
 resource "aws_instance" "my-ec2" {
   count                   = var.OD_INSTANCE_COUNT
   ami                     = data.aws_ami.lab-image.id
