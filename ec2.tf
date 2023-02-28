@@ -30,7 +30,7 @@ resource "aws_spot_instance_request" "cheap_worker" {
 # Creates the tags to spot instance 
 
 resource "aws_ec2_tag" "spot-server-tag" {
-  resource_id = 
+  resource_id =  should be ids of OD Server ID + the SPOT Server ID
   key         = "Name"
   value       = "${var.COMPONENT}-${var.ENV}"
 }
