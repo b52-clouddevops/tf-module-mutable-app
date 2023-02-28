@@ -1,5 +1,9 @@
 resource "null_resource" "app" {
 
+  triggers = {
+    version = var.APP_VERSION
+  }
+
   count   = var.OD_INSTANCE_COUNT + var.SPOT_INSTANCE_COUNT
 
   provisioner "remote-exec" {
