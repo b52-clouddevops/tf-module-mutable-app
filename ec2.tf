@@ -37,5 +37,5 @@ resource "aws_ec2_tag" "spot-server-tag" {
 }
 
 locals {
-    ALL_INSTANCE_IDS = concat(aws_spot_instance_request)
+    ALL_INSTANCE_IDS = concat(aws_spot_instance_request.spot-server.*.)
 }
