@@ -5,7 +5,6 @@ variable "OD_INSTANCE_COUNT" {}
 variable "COMPONENT" {}
 variable "APP_VERSION" {}
 variable "APP_PORT" {}
-
-
+variable "ALB_TYPE" {}
 
 
