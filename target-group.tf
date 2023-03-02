@@ -28,10 +28,9 @@ resource "aws_lb_listener_rule" "tg-rule" {
     target_group_arn = aws_lb_target_group.app-tg.arn
   }
 
-
   condition {
     host_header {
-      values = ["${var.COMPONENT}-${var.ENV}.${data.terraform_remote_state.vpc.outputs.}"]
+      values = ["${var.COMPONENT}-${var.ENV}.${data.terraform_remote_state.vpc.outputs.PRIVATE_HOSTEDZONE_NAME}"]
     }
   }
 }
