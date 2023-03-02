@@ -7,3 +7,8 @@ resource "aws_lb_target_group" "app-tg" {
 }
 
 # Attaching the target group to the load-balancer
+resource "aws_lb_target_group_attachment" "instance-attach" {
+  target_group_arn = aws_lb_target_group.app-tg.arn
+  target_id        = ?
+  port             = 80
+}
