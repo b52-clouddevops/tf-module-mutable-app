@@ -3,5 +3,5 @@ resource "aws_route53_record" "component" {
   name    = "${var.COMPONENT}-dev.roboshop.internal"
   type    = "CNAME"
   ttl     = 10
-  records = [CNAME of the crea]
+  records = [CNAME of the load balancer]
 }
