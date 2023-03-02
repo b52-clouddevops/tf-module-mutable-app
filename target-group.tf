@@ -1,8 +1,8 @@
 #  Creates the target group.
 
 resource "aws_lb_target_group" "app-tg" {
-  name     = "${var.COMPONENT}-${dev}
-  port     = 80
+  name     = "${var.COMPONENT}-${var.ENV}"
+  port     = 8080
   protocol = "HTTP"
-  vpc_id   = aws_vpc.main.id
+  vpc_id   = data.terraform_remote_state.vpc.outputs
 }
