@@ -20,7 +20,7 @@ resource "aws_lb_target_group_attachment" "instance-attach" {
 
 # Adding rules to the created target group
 resource "aws_lb_listener_rule" "tg-rule" {
-  listener_arn = aws_lb_listener.front_end.arn
+  listener_arn = 
   priority     = 100
 
   action {
