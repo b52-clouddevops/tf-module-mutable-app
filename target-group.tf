@@ -31,7 +31,7 @@ resource "aws_lb_listener_rule" "tg-rule" {
 
   condition {
     host_header {
-      values = ["example.com"]
+      values = ["${var.COMPONENT}-${var.ENV}.${}"]
     }
   }
 }
