@@ -20,7 +20,7 @@ resource "aws_lb_target_group_attachment" "instance-attach" {
 
 # Adding rules to the created target group
 resource "aws_lb_listener_rule" "tg-rule" {
-  listener_arn = data.terraform_remote_state.vpc.outputs.PRIVATE_LISTENER_ARN
+  listener_arn = data.terraform_remote_state.alb.outputs.PRIVATE_LISTENER_ARN
   priority     = 100
 
   action {
