@@ -17,3 +17,4 @@ resource "aws_lb_target_group_attachment" "instance-attach" {
 
 # Backend components  target groups apart from frontend-tg has to go and be attached to Private Load Balancer Only
 # Frontend Component target groups should go and attach to Public Load Balancer Only
+
