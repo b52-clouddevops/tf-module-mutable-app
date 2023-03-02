@@ -8,6 +8,7 @@ resource "aws_lb_target_group" "app-tg" {
 
 # Attaching the instances to the created target group
 resource "aws_lb_target_group_attachment" "instance-attach" {
+  count            = 
   target_group_arn = aws_lb_target_group.app-tg.arn
   target_id        = ?
   port             = 80
