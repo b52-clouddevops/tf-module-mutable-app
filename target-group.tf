@@ -19,3 +19,24 @@ resource "aws_lb_target_group_attachment" "instance-attach" {
 # Frontend Component target groups should go and attach to Public Load Balancer Only
 
 # Adding rules to the created target group
+resource "aws_lb_listener_rule" "tg-rule" {
+  listener_arn = aws_lb_listener.front_end.arn
+  priority     = 100
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.static.arn
+  }
+
+  condition {
+    path_pattern {
+      values = ["/static/*"]
+    }
+  }
+
+  condition {
+    host_header {
+      values = ["example.com"]
+    }
+  }
+}
