@@ -34,3 +34,13 @@ resource "aws_lb_listener_rule" "tg-rule" {
     }
   }
 }
+
+# Generating random interger in the range of 100 to 800
+resource "random_integer" "priority" {
+  min = 100
+  max = 
+  keepers = {
+    # Generate a new integer each time we switch to a new listener ARN
+    listener_arn = var.listener_arn
+  }
+}
