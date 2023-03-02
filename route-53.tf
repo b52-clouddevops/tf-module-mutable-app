@@ -3,5 +3,5 @@ resource "aws_route53_record" "component" {
   name    = "${var.COMPONENT}-dev.roboshop.internal"
   type    = "CNAME"
   ttl     = 10
-  records = [data.terraform_remote_state.alb.outputs.]
+  records = [data.terraform_remote_state.alb.outputs.PRIVATE_ALB_ADDRESS]
 }
