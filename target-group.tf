@@ -6,9 +6,8 @@ resource "aws_lb_target_group" "app-tg" {
   vpc_id   = data.terraform_remote_state.vpc.outputs.VPC_ID
 
   health_check {
-    path = "/api/1/resolve/default?path=/service/my-service"
-    port = 2001
-    healthy_threshold = 6
+    path = "/health"
+    healthy_threshold = 2
     unhealthy_threshold = 2
     timeout = 2
     interval = 5
