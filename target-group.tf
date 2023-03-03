@@ -12,9 +12,7 @@ resource "aws_lb_target_group" "app-tg" {
     timeout                = 4
     interval               = 5
     enabled                = true 
-
-  }
-
+   }
 }
 
 # Attaching the instances to the created target group
