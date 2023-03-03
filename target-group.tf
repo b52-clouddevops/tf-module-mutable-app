@@ -1,9 +1,20 @@
 #  Creates the target group.
 resource "aws_lb_target_group" "app-tg" {
   name     = "${var.COMPONENT}-${var.ENV}"
-  port     = 8080
+  port     = var.APP_PORT
   protocol = "HTTP"
   vpc_id   = data.terraform_remote_state.vpc.outputs.VPC_ID
+
+  health_check {
+    path = "/api/1/resolve/default?path=/service/my-service"
+    port = 2001
+    healthy_threshold = 6
+    unhealthy_threshold = 2
+    timeout = 2
+    interval = 5
+    matcher = "200"  # has to be HTTP 200 or fails
+  }
+
 }
 
 # Attaching the instances to the created target group
