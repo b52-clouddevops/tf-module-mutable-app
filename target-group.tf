@@ -18,7 +18,14 @@ resource "aws_lb_target_group_attachment" "instance-attach" {
 # Backend components  target groups apart from frontend-tg has to go and be attached to Private Load Balancer Only
 # Frontend Component target groups should go and attach to Public Load Balancer Only
 
-# Adding rules to the created target group
+# Generating random interger in the range of 100 to 800
+resource "random_integer" "priority" {
+  min = 100
+  max = 800
+}
+
+
+# Adding rules to the created public target group
 resource "aws_lb_listener_rule" "tg-rule" {
   listener_arn = data.terraform_remote_state.alb.outputs.PRIVATE_LISTENER_ARN
   priority     = random_integer.priority.result
@@ -35,11 +42,6 @@ resource "aws_lb_listener_rule" "tg-rule" {
   }
 }
 
-# Generating random interger in the range of 100 to 800
-resource "random_integer" "priority" {
-  min = 100
-  max = 800
-}
 
 
 # Creating a listener in the public load-balancer
