@@ -44,7 +44,7 @@ resource "random_integer" "priority" {
 
 # Creating a listener in the public load-balancer
 resource "aws_lb_listener" "public" {
-  count             = var.INTERNAL ? 0 : 1
+  count             = var.ALB_TYPE ? 0 : 1
 
   load_balancer_arn = data.terraform_remote_state.alb.outputs.PUBLIC_ALB_ARN
   port              = "80"
