@@ -16,7 +16,7 @@ resource "null_resource" "app" {
       }
 
       inline = [
-          "ansible-pull -U https://github.com/b52-clouddevops/ansible.git -e MONGO_URL=${data.data.terraform_remote_state.db.outputs.MONGO_ENDPOINT} -e COMPONENT=${var.COMPONENT} -e DB_PASSWORD=RoboShop@1 -e ENV=${var.ENV} -e APP_VERSION=${var.APP_VERSION} -e ENV=dev robot-pull.yml"
+          "ansible-pull -U https://github.com/b52-clouddevops/ansible.git -e MONGO_URL=${data.terraform_remote_state.db.outputs.MONGO_ENDPOINT} -e COMPONENT=${var.COMPONENT} -e DB_PASSWORD=RoboShop@1 -e ENV=${var.ENV} -e APP_VERSION=${var.APP_VERSION} -e ENV=dev robot-pull.yml"
         ]
     }
 
