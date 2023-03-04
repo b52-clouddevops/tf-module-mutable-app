@@ -18,6 +18,15 @@ data "terraform_remote_state" "alb" {
   }
 }
 
+data "terraform_remote_state" "db" {
+  backend = "s3"
+  config = {
+        bucket = "b52-terraform-state-bucket"
+        key    = "databases/${var.ENV}/terraform.tfstate"
+        region = "us-east-1"
+  }
+}
+
 # This is to read the information of the AMI
 data "aws_ami" "lab-image" {
   most_recent      = true
