@@ -6,6 +6,7 @@ resource "aws_instance" "my-ec2" {
   instance_type           = var.INSTANCE_TYPE
   subnet_id               = element(data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_IDS, count.index)
   vpc_security_group_ids  = [aws_security_group.allow_app.id]
+  iam_instance_profile    = 
 }
 
 
