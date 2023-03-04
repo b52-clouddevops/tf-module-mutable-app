@@ -6,7 +6,7 @@ resource "aws_instance" "my-ec2" {
   instance_type           = var.INSTANCE_TYPE
   subnet_id               = element(data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_IDS, count.index)
   vpc_security_group_ids  = [aws_security_group.allow_app.id]
-  iam_instance_profile    = 
+  iam_instance_profile    = "b52-admin-role"
 }
 
 
@@ -17,7 +17,8 @@ resource "aws_spot_instance_request" "spot-server" {
   instance_type           = var.INSTANCE_TYPE
   subnet_id               = element(data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_IDS, count.index)
   vpc_security_group_ids  = [aws_security_group.allow_app.id]
-  wait_for_fulfillment = true
+  wait_for_fulfillment    = true
+  iam_instance_profile    = "b52-admin-role"
 
   tags = {
     Name = "${var.COMPONENT}-${var.ENV}"
