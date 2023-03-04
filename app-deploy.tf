@@ -22,4 +22,4 @@ resource "null_resource" "app" {
 
 }
 
-# By default, provisioners are create-time only; Means they only run during the infrastrucure creation only.
+# By default, provisioners are create-time only; Means they only run during the infrastrucure creation only.!
